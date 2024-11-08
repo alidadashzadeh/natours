@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Tour = require('./tourModel');
+
 const reviewSchema = new mongoose.Schema(
   {
     review: { type: String, required: [true, 'Review cannot be empty'] },
@@ -28,9 +29,7 @@ const reviewSchema = new mongoose.Schema(
 
 reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
 
-// no need to repeat tour name again in populating the review
 reviewSchema.pre(/^find/, function(next) {
-  // this.populate({ path: 'tour', select: 'name' }).populate({
   this.populate({
     path: 'user',
     select: 'name photo'
