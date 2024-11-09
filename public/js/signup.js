@@ -13,7 +13,7 @@ export const signup = async (name, email, password, passwordConfirm) => {
     });
 
     if (res.data.status === 'success') {
-      showAlert('success', 'Signed Up in successfully');
+      showAlert('success', 'Signed Up successfully');
       window.setTimeout(() => {
         location.assign('/');
       }, 1000);
