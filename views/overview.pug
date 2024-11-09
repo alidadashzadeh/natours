@@ -2,6 +2,10 @@ extends base
 
 block content
     main.main
+        - if (tours.length===0) 
+            .flex__vertical
+                p.heading-secondary You have no tour booked at the moment. Please book your first tour to proceed.
+                a.btn.btn--green(href=`/`) Discover Tours
         .card-container
             each tour in tours
                 .card

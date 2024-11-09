@@ -57,6 +57,14 @@ body {
   display: -ms-flexbox;
   display: flex;
 }
+.flex__vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  align-items: center;
+}
 
 .span-all-rows {
   grid-row: 1 / -1;

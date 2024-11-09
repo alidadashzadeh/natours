@@ -4,9 +4,11 @@ import { login, logout } from './login';
 import '@babel/polyfill';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
+import { signup } from './signup';
 
 // DOM elements
 const loginForm = document.querySelector('.formLogin');
+const signupForm = document.querySelector('.formSignup');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const logoutBtn = document.querySelector('.nav__el--logout');
@@ -22,6 +24,20 @@ if (loginForm) {
     login(email, password);
   });
 }
+
+if (signupForm) {
+  signupForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('passwordConfirm').value;
+
+    signup(name, email, password, passwordConfirm);
+  });
+}
+
 if (userDataForm) {
   userDataForm.addEventListener('submit', e => {
     e.preventDefault();

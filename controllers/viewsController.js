@@ -34,6 +34,10 @@ exports.getLoginForm = catchAsync(async (req, res) => {
   res.status(200).render('login', { title: 'Log into your account' });
 });
 
+exports.getSignupForm = catchAsync(async (req, res) => {
+  res.status(200).render('signup', { title: 'Create a new account' });
+});
+
 exports.getMyTours = catchAsync(async (req, res, next) => {
   const bookings = await Booking.find({ user: req.user.id });
 
