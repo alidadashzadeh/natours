@@ -12,11 +12,14 @@ export const signup = async (name, email, password, passwordConfirm) => {
       data: { name, email, password, passwordConfirm }
     });
 
+    console.log(res);
+
     if (res.data.status === 'success') {
       showAlert('success', 'Signed Up successfully');
+
       window.setTimeout(() => {
         location.assign('/');
-      }, 1000);
+      }, 100);
     }
   } catch (err) {
     showAlert('error', err.response.data.message);

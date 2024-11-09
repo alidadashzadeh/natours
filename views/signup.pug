@@ -2,11 +2,11 @@ extends base
 
 block content
     main.main
-        .login-form
+        .signup-form         
             h2.heading-secondary.ma-bt-lg Create new account
             form.form.formSignup
                 .form__group
-                    label.form__label(for='name') Name
+                    label.form__label(for='name') Your name
                     input#name.form__input(type='text', placeholder='John', required)
                 .form__group
                     label.form__label(for='email') Email address
@@ -18,4 +18,4 @@ block content
                     label.form__label(for='passwordConfirm') Password Confirm
                     input#passwordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
                 .form__group
-                    button.btn.btn--green Sign up
+                    button.btn.btn--green#signupBtn Sign up

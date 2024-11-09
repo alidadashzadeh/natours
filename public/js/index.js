@@ -13,6 +13,7 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const logoutBtn = document.querySelector('.nav__el--logout');
 const bookBtn = document.getElementById('book-tour');
+const signupBtn = document.getElementById('signupBtn');
 
 if (loginForm) {
   loginForm.addEventListener('submit', e => {
@@ -28,6 +29,8 @@ if (loginForm) {
 if (signupForm) {
   signupForm.addEventListener('submit', e => {
     e.preventDefault();
+
+    signupBtn.textContent = 'Loading ...';
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
