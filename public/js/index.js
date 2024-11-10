@@ -16,39 +16,53 @@ const bookBtn = document.getElementById('book-tour');
 const signupBtn = document.getElementById('signupBtn');
 
 if (loginForm) {
-  loginForm.addEventListener('submit', e => {
+  loginForm.addEventListener('submit', async e => {
     e.preventDefault();
+
+    document.querySelector('.btn--login').textContent = 'Logging in...';
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    login(email, password);
+    await login(email, password);
+
+    document.querySelector('.btn--login').textContent = 'Login';
   });
 }
 
 if (signupForm) {
-  signupForm.addEventListener('submit', e => {
+  signupForm.addEventListener('submit', async e => {
     e.preventDefault();
+
+    document.querySelector('.btn--signup').textContent = 'signing in...';
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
 
-    signup(name, email, password, passwordConfirm);
+    await signup(name, email, password, passwordConfirm);
+
+    document.querySelector('.btn--signup').textContent = 'signin';
   });
 }
 
 if (userDataForm) {
-  userDataForm.addEventListener('submit', e => {
+  userDataForm.addEventListener('submit', async e => {
     e.preventDefault();
     const form = new FormData();
+
+    document.querySelector('.btn--save-settings ').textContent = 'Updating...';
 
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
 
-    updateSettings(form, 'data');
+    await updateSettings(form, 'data');
+
+    location.reload();
+    document.querySelector('.btn--save-settings ').textContent =
+      'save settings';
   });
 }
 

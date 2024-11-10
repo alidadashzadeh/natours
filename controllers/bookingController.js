@@ -1,5 +1,4 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const AppError = require('../utils/appError');
 const Tour = require('./../models/tourModel');
 const Booking = require('./../models/bookingModel');
 const catchAsync = require('./../utils/catchAsync');
@@ -50,7 +49,13 @@ exports.createBookingCheckout = catchAsync(async (req, res, next) => {
   if (!tour && !user && !price) return next();
   await Booking.create({ tour, user, price });
 
-  res.redirect(`${req.originalUrl.split('?')[0]}`);
+  res.redirect(
+    `${
+      req.originalUrl
+        ? req.originalUrl.split('?')[0]
+        : 'https://natours-ad.onrender.com/'
+    }my-tours`
+  );
 });
 
 exports.getBooking = factory.getOne(Booking);

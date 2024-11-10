@@ -13006,45 +13006,100 @@ var logoutBtn = document.querySelector('.nav__el--logout');
 var bookBtn = document.getElementById('book-tour');
 var signupBtn = document.getElementById('signupBtn');
 if (loginForm) {
-  loginForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    (0, _login.login)(email, password);
-  });
+  loginForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
+      var email, password;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            e.preventDefault();
+            document.querySelector('.btn--login').textContent = 'Logging in...';
+            email = document.getElementById('email').value;
+            password = document.getElementById('password').value;
+            _context.next = 6;
+            return (0, _login.login)(email, password);
+          case 6:
+            document.querySelector('.btn--login').textContent = 'Login';
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    }));
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }());
 }
 if (signupForm) {
-  signupForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var passwordConfirm = document.getElementById('passwordConfirm').value;
-    (0, _signup.signup)(name, email, password, passwordConfirm);
-  });
+  signupForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
+      var name, email, password, passwordConfirm;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            e.preventDefault();
+            document.querySelector('.btn--signup').textContent = 'signing in...';
+            name = document.getElementById('name').value;
+            email = document.getElementById('email').value;
+            password = document.getElementById('password').value;
+            passwordConfirm = document.getElementById('passwordConfirm').value;
+            _context2.next = 8;
+            return (0, _signup.signup)(name, email, password, passwordConfirm);
+          case 8:
+            document.querySelector('.btn--signup').textContent = 'signin';
+          case 9:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    }));
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
 }
 if (userDataForm) {
-  userDataForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var form = new FormData();
-    form.append('name', document.getElementById('name').value);
-    form.append('email', document.getElementById('email').value);
-    form.append('photo', document.getElementById('photo').files[0]);
-    (0, _updateSettings.updateSettings)(form, 'data');
-  });
+  userDataForm.addEventListener('submit', /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
+      var form;
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            e.preventDefault();
+            form = new FormData();
+            document.querySelector('.btn--save-settings ').textContent = 'Updating...';
+            form.append('name', document.getElementById('name').value);
+            form.append('email', document.getElementById('email').value);
+            form.append('photo', document.getElementById('photo').files[0]);
+            _context3.next = 8;
+            return (0, _updateSettings.updateSettings)(form, 'data');
+          case 8:
+            location.reload();
+            document.querySelector('.btn--save-settings ').textContent = 'save settings';
+          case 10:
+          case "end":
+            return _context3.stop();
+        }
+      }, _callee3);
+    }));
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }());
 }
 if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
+  var _ref4 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee4(e) {
     var passwordCurrent, password, passwordConfirm;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
         case 0:
           e.preventDefault();
           document.querySelector('.btn--save-password').textContent = 'Updating...';
           passwordCurrent = document.getElementById('password-current').value;
           password = document.getElementById('password').value;
           passwordConfirm = document.getElementById('password-confirm').value;
-          _context.next = 7;
+          _context4.next = 7;
           return (0, _updateSettings.updateSettings)({
             passwordCurrent: passwordCurrent,
             password: password,
@@ -13057,12 +13112,12 @@ if (userPasswordForm) userPasswordForm.addEventListener('submit', /*#__PURE__*/f
           document.getElementById('password-confirm').value = '';
         case 11:
         case "end":
-          return _context.stop();
+          return _context4.stop();
       }
-    }, _callee);
+    }, _callee4);
   }));
-  return function (_x) {
-    return _ref.apply(this, arguments);
+  return function (_x4) {
+    return _ref4.apply(this, arguments);
   };
 }());
 if (logoutBtn) logoutBtn.addEventListener('click', _login.logout);
